@@ -53,8 +53,8 @@ def home():
     if model_dict is None:
         load_model()
     if model_dict is None:
-        retrun "Error:model not loaded.Run train.py first"
-        
+        return "Error:model not loaded.Run train.py first"
+
     return render_template('index.html', best_model=best_model, results=results)
 
 
