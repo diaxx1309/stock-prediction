@@ -27,20 +27,22 @@ results = None
 
 
 def load_model():
-    """Load trained model from saved_model.pkl"""
     global model_dict, best_model, scaler, results
     
-    if os.path.exists('saved_model.pkl'):
-        with open('saved_model.pkl', 'rb') as f:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(BASE_DIR, 'saved_model.pkl')
+    
+    if os.path.exists(model_path):
+        with open(model_path, 'rb') as f:
             model_dict = pickle.load(f)
-        
+            
         best_model = model_dict['best_model']
         scaler = model_dict['scaler']
         results = model_dict['results']
         print(f"✅ Model loaded! Best model: {best_model}")
         return True
     else:
-        print("❌ Model not found! Run train.py first.")
+        print(f"❌ Model not found at: {model_path}")
         return False
 
 
