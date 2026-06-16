@@ -1,6 +1,6 @@
 pandas
 numpy
 scikit-learn
-tensorflow-cpu
 flask
 python-dotenv
+gunicorn
