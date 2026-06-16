@@ -1,6 +1,6 @@
 pandas
 numpy
-scikit-learn
 flask
 python-dotenv
 gunicorn
+scikit-learn==1.8.0
