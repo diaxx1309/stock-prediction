@@ -48,10 +48,13 @@ def load_model():
 
 @app.route('/')
 def home():
+    global mode_dict
     """Home page with prediction form"""
     if model_dict is None:
-        return "Error: Model not loaded. Run train.py first.", 500
-    
+        load_model()
+    if model_dict is None:
+        retrun "Error:model not loaded.Run train.py first"
+        
     return render_template('index.html', best_model=best_model, results=results)
 
 
